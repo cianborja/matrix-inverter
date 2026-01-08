@@ -13,14 +13,23 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({ solution }) => {
         return (
             <div className="solution-display" style={{ textAlign: 'center', padding: '40px' }}>
                 <h2 style={{ color: '#ff6b6b', marginBottom: '20px' }}>⚠️ Error</h2>
-                <p style={{ fontSize: '24px', fontWeight: 'bold', color: '#ff6b6b' }}>
-                    {solution.error}
-                </p>
-                <p style={{ marginTop: '20px', color: '#ddd' }}>
-                    {solution.error === 'The matrix is singular' 
-                        ? 'This matrix has no inverse because its determinant is zero.'
-                        : 'Please check your input and try again.'}
-                </p>
+                <div style={{ 
+                    backgroundColor: '#f5f5f5',
+                    border: '2px solid #ddd',
+                    borderRadius: '8px',
+                    padding: '25px',
+                    minHeight: '150px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                }}>
+                    <p style={{ fontSize: '24px', fontWeight: 'bold', color: '#ff6b6b' }}>
+                        {solution.error}
+                    </p>
+                    <p style={{ marginTop: '20px', color: '#333' }}>
+                        {solution.error === 'The matrix is singular' 
+                            ? 'This matrix has no inverse because its determinant is zero.'
+                            : 'Please check your input and try again.'}
+                    </p>
+                </div>
             </div>
         );
     }
@@ -31,19 +40,29 @@ const SolutionDisplay: React.FC<SolutionDisplayProps> = ({ solution }) => {
     }
 
     return (
-        <div className="solution-display" style={{ textAlign: 'center', padding: '40px' }}>
-            <h2 style={{ color: '#4caf50', marginBottom: '20px' }}>✅ Final Result - Inverse Matrix</h2>
+        <div className="solution-display" style={{ padding: '40px 0' }}>
+            <h2 style={{ color: '#4caf50', marginBottom: '20px', textAlign: 'center' }}>
+                ✅ Final Result - Inverse Matrix
+            </h2>
             <div style={{ 
                 backgroundColor: '#f5f5f5',
                 border: '2px solid #ddd',
                 borderRadius: '8px',
-                display: 'flex', 
-                justifyContent: 'center',
+                padding: '25px',
+                minHeight: '150px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
-                minHeight: '100px',
-                margin: '20px 0'
+                justifyContent: 'center'
             }}>
-                <LaTeXRenderer latex={matrixToLatex(solution.finalMatrix)} />
+                <div style={{ 
+                    fontSize: '18px',
+                    display: 'flex',
+                    justifyContent: 'center'
+                }}>
+                    <LaTeXRenderer latex={matrixToLatex(solution.finalMatrix)} />
+                </div>
             </div>
         </div>
     );
