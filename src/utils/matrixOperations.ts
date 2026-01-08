@@ -19,6 +19,12 @@
  * This prevents tiny floating point errors from affecting our calculations.
 */
 
+/**
+ * 2. Automated Matrix Inverter
+ * Project: Build a program/application that takes a square n-by-n matrix, where n ≤ 10, and uses RREF to return its inverse. If the matrix is singular, the program should return “the matrix is singular.”
+ * 
+ */
+
 import type { Step, SolutionResult } from '../types/matrix';
 
 // Helper Function: Deep copy matrix
